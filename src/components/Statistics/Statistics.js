@@ -3,12 +3,12 @@ import s from "./Statistics.module.css";
 import PropTypes from "prop-types";
 
 const Statistics = ({ title, stats }) => {
-  console.log(title, stats);
+  // console.log(title, stats);
   return (
     <>
       <section className={s.statistics}>
-        {/* {title && <h2 className={s.title}>Upload stats</h2>} */}
-        <h2 class="title">Upload stats</h2>
+        {title && <h2 className={s.title}>Upload stats</h2>}
+        {/* <h2 class="title">Upload stats</h2> */}
 
         <ul className={s.statList}>
           {stats.map((el) => {

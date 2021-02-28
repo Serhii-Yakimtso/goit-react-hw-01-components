@@ -1,7 +1,36 @@
-import React from 'react'
+import React from "react";
+import ProtoTypes from "prop-types";
+import s from "./FriendList.module.css";
 
-const FriendList = () => {
-    return (<><h2>FriendList</h2></>)
-}
+const FriendList = ({ friends }) => {
+  console.log(friends);
+  return (
+    <>
+      <section className={s.friends}>
+        <h2>FriendList</h2>
+        <ul className="friend-list">
+          {friends.map((el) => {
+            const { avatar, name, isOnline, id } = el;
 
-export default FriendList
+            return (
+              <li className={s.item} key={id}>
+                <span className={s.status}>{isOnline}</span>
+                <img className={s.avatar} src={avatar} alt={name} width="48" />
+                <p className={s.name}>{name}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>{" "}
+    </>
+  );
+};
+
+export default FriendList;
+
+FriendList.protoTypes = {
+  avatar: ProtoTypes.string.isRequired,
+  name: ProtoTypes.string.isRequired,
+  isOnline: ProtoTypes.bool.isRequired,
+  id: ProtoTypes.string.isRequired,
+};
