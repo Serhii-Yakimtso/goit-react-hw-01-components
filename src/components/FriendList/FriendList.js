@@ -8,13 +8,22 @@ const FriendList = ({ friends }) => {
     <>
       <section className={s.friends}>
         <h2>FriendList</h2>
-        <ul className="friend-list">
+        <ul className={s.friendsList}>
           {friends.map((el) => {
             const { avatar, name, isOnline, id } = el;
 
+
+            
+            const statusClasses = [s.status];
+            console.log(statusClasses);
+
+            if (!isOnline) {
+              statusClasses.push(s.isOffline);
+            }
+
             return (
               <li className={s.item} key={id}>
-                <span className={s.status}>{isOnline}</span>
+                <span className={statusClasses.join(" ")}>{isOnline}</span>
                 <img className={s.avatar} src={avatar} alt={name} width="48" />
                 <p className={s.name}>{name}</p>
               </li>
