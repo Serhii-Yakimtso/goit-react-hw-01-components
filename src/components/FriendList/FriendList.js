@@ -3,7 +3,7 @@ import ProtoTypes from "prop-types";
 import s from "./FriendList.module.css";
 
 const FriendList = ({ friends }) => {
-  console.log(friends);
+  // console.log(friends);
   return (
     <>
       <section className={s.friends}>
@@ -12,10 +12,8 @@ const FriendList = ({ friends }) => {
           {friends.map((el) => {
             const { avatar, name, isOnline, id } = el;
 
-
-            
             const statusClasses = [s.status];
-            console.log(statusClasses);
+            // console.log(statusClasses);
 
             if (!isOnline) {
               statusClasses.push(s.isOffline);
@@ -30,7 +28,7 @@ const FriendList = ({ friends }) => {
             );
           })}
         </ul>
-      </section>{" "}
+      </section>
     </>
   );
 };
