@@ -3,7 +3,7 @@ import ProtoTypes from "prop-types";
 import s from "./TransactionHistory.module.css";
 
 const TransactionHistory = ({ transaction }) => {
-  console.log(transaction);
+  // console.log(transaction);
 
   return (
     <>

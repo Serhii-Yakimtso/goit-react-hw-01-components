@@ -1,5 +1,6 @@
 import React from "react";
 import ProtoTypes from "prop-types";
+import FriendlistItem from "./FriendListItem/FriendListItem";
 import s from "./FriendList.module.css";
 
 const FriendList = ({ friends }) => {
@@ -12,19 +13,27 @@ const FriendList = ({ friends }) => {
           {friends.map((el) => {
             const { avatar, name, isOnline, id } = el;
 
-            const statusClasses = [s.status];
-            // console.log(statusClasses);
+            // const statusClasses = [s.status];
+            // // console.log(statusClasses);
 
-            if (!isOnline) {
-              statusClasses.push(s.isOffline);
-            }
+            // if (!isOnline) {
+            //   statusClasses.push(s.isOffline);
+            // }
 
             return (
-              <li className={s.item} key={id}>
-                <span className={statusClasses.join(" ")}>{isOnline}</span>
-                <img className={s.avatar} src={avatar} alt={name} width="48" />
-                <p className={s.name}>{name}</p>
-              </li>
+              <FriendlistItem
+                avatar={avatar}
+                name={name}
+                isOnline={isOnline}
+                id={id}
+                // className={s.item}
+                // statusClasses={statusClasses}
+              />
+              // <li className={s.item} key={id}>
+              //   <span className={statusClasses.join(" ")}>{isOnline}</span>
+              //   <img className={s.avatar} src={avatar} alt={name} width="48" />
+              //   <p className={s.name}>{name}</p>
+              // </li>
             );
           })}
         </ul>
